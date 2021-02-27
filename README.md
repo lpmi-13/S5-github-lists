@@ -5,10 +5,10 @@ This is a service I'm going to run (in docker probably), and then run it somehwe
 ## running the service locally
 
 ```bash
-$ npm install
-$ node grabRepos.js
+$ docker build -t NAME_OF_IMAGE .
+$ docker run -it --rm -v $(pwd)/data:/data NAME_OF_IMAGE
 ```
 
-and you'll have a tasty `javascript-results.txt` file in your directory!
+and you'll have a tasty `javascript-results.txt` file in your `./data` directory!
 
-...currently working on putting this into a container.
+this is in a container since I'm _assuming_ it'll be easier to put in prometheus metrics this way, as opposed to somehow just monitoring a script...but I guess that's something I'll learn along the way!
